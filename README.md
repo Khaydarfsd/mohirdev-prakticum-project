@@ -1,1 +1,1 @@
-# mohirdev-prakticum-project
+# mohirdev_prakticum_project
