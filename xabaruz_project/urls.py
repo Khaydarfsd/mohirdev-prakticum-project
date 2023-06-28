@@ -5,7 +5,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('xabar_app.urls'))
+    path('', include('xabar_app.urls')),
+    path('account/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:

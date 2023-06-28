@@ -1,5 +1,6 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load hitcount_tags %}
 
 {% block title %} Texnologik xabarlar {% endblock title %}
 {% block content %}
@@ -12,6 +13,7 @@
                     <a href="{{ news.get_absolute_url }}">
                         <img class="float-md-start" src="{{ news.image.url }}" alt="{{ news.title }}" style="width:40%">
                         <h4 class="float-md-end">{{ news.title }}</h4>
+                        <p><i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}</p>
                     </a>
                 </div>
             </div>
