@@ -1,8 +1,11 @@
 {% extends 'news/base.html' %}
 {% load static %}
 {% load hitcount_tags %}
+{% load i18n %}
 
-{% block title %} Bosh sahifa {% endblock title %}
+{% block title %}
+  {% blocktrans %} Bosh sahifa {% endblocktrans %}
+{% endblock title %}
 {% block content %}
 
 <html>
@@ -24,7 +27,7 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="latest_post">
-          <h2><span>So'nggi yangiliklar</span></h2>
+          <h2><span>{% blocktrans %}So'nggi yangiliklar{% endblocktrans %}</span></h2>
           <div class="latest_post_container">
             <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
             <ul class="latest_postnav">
@@ -33,7 +36,7 @@
               <li>
                 <div class="media"> <a href="{{ news.get_absolute_url }}" class="media-left"> <img alt="" src="{{ news.image.url }}"> </a>
                   <div class="media-body"> <a href="{{ news.get_absolute_url }}" class="catg_title"> {{ news.title }}</a>
-                    <p><i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}</p>
+                    <p>{% blocktrans %} Ko'rilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}</p>
                   </div>
                 </div>
               </li>
@@ -51,7 +54,7 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
           <div class="single_post_content">
-            <h2><span>Mahalliy</span></h2>
+            <h2><span>{% blocktrans %} Mahalliy {% endblocktrans %}</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
 
