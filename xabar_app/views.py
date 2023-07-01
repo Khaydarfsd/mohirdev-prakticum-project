@@ -8,6 +8,8 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
 from hitcount.utils import get_hitcount_model
 from hitcount.views import HitCountDetailView, HitCountMixin
+from django.shortcuts import redirect
+from django.urls import reverse
 
 from .models import News, Category
 from .forms import ContactForm, CommentForm
@@ -51,6 +53,7 @@ def news_detail(request, news):
             # MB ga saqlaymiz
             new_comment.save()
             comment_form = CommentForm()
+            return redirect(reverse('news_detail_page', kwargs={'news': news.slug}))
     else:
         comment_form = CommentForm()
 
